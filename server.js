@@ -22,13 +22,16 @@ app.use((req, res, next) => {
 
 // Route files
 const companys = require('./routes/company');
-
+const appointments = require('./routes/appointments');
+const auth = require('./routes/auth');
 
 // Log the type of each imported module
 console.log('Type of companys:', typeof companys);
 
 // Body parser
 app.use('/api/v1/companys', companys);
+app.use('/api/v1/appointments', appointments)
+app.use('/api/v1/auth', auth)
 
 const PORT = process.env.PORT || 5003;
 const server = app.listen(PORT, console.log('Server running in ', process.env.NODE_ENV, ' mode on port ', PORT));

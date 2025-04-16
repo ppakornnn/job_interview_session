@@ -78,7 +78,7 @@ exports.getCompanys=async (req,res,next) => {
 //@desc     Get single company
 //@route    GET /api/v1/company/:id
 //@access   Public
-exports.getcompany=async (req,res,next) => {
+exports.getCompany=async (req,res,next) => {
     try{
         const company = await Company.findById(req.params.id);
 
