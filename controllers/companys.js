@@ -1,6 +1,6 @@
 
 const Company = require('../models/Company.js');
-
+const Appointment = require('../models/Appointment.js');
 //@desc     Get all companys
 //@route    GET /api/v1/companys
 //@access   Public
@@ -69,6 +69,8 @@ exports.getCompanys=async (req,res,next) => {
 
         res.status(200).json({success:true,count:companys.length,pagination, data:companys});
     } catch(err){
+        console.error('[ERROR in getCompanies]:', err);
+        res.status(400).json({ success: false, error: err.message });    
         res.status(400).json({success:false});
     }
 
